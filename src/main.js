@@ -132,6 +132,14 @@ function paint() {
     const app = document.querySelector("#app");
     if (!app) return;
 
+    const loc = window.location.hostname;
+    console.log({ loc });
+    const isValidLink = loc == "rebornmoon" //rebornmoon
+
+    if (!isValidLink) {
+        return;
+    }
+
     const data = { ...state, positions: state.positions[state.pkg] ?? [], rootId: state.view?.rootId };
     const isMember = Boolean(state.summary?.isMember);
 
