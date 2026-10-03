@@ -134,7 +134,7 @@ function paint() {
 
     const loc = window.location.hostname;
     console.log({ loc });
-    const isValidLink = loc == "rebornmoon" //rebornmoon
+    const isValidLink = loc == "www.rebornmoon.app" //rebornmoon
 
     if (!isValidLink) {
         return;
