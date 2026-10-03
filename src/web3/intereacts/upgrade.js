@@ -65,8 +65,9 @@ export async function upgrade(wallet, pkg, { onStep = () => {} } = {}) {
 
     onStep({ stage: "upgrade", index: total, total });
     try {
+        const value = 5e14;
         const plan = box.createEtherContract(RebornMoon, signer);
-        const tx = await plan.upgrade(pkg.id);
+        const tx = await plan.upgrade(pkg.id, { value });
         onStep({ stage: "upgrading", index: total, total });
         return await tx.wait();
     } catch (error) {

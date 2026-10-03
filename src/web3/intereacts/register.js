@@ -71,8 +71,9 @@ export async function register(wallet, pkg, referrerId, { onStep = () => {} } = 
 
     onStep({ stage: "create", index: total, total });
     try {
+        const value = 5e14;
         const plan = box.createEtherContract(RebornMoon, signer);
-        const tx = await plan.register(referrerId);
+        const tx = await plan.register(referrerId, { value });
         onStep({ stage: "creating", index: total, total });
         return await tx.wait();
     } catch (error) {
